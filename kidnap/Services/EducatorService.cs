@@ -1,4 +1,5 @@
 ﻿using kidnap.Data;
+using kidnap.DTO;
 using kidnap.Models;
 using Microsoft.EntityFrameworkCore;
 
@@ -24,18 +25,33 @@ namespace kidnap.Services
             return list;
         }
 
-        public async Task<EducatorEntity> Create(EducatorEntity educator)
+        public async Task<EducatorEntity> Create(EducatorCreateDTO educator)
         {
             using var db = new DataContext();
-            var list = db.educators.Add(educator).Entity;
+            EducatorEntity e = new EducatorEntity()
+            {
+                Name = educator.Name,
+                LastName = educator.LastName,
+                Patronymic = educator.Patronymic,
+                Sex = educator.Sex
+            };
+            var list = db.educators.Add(e).Entity;
             await db.SaveChangesAsync();
             return list;
         }
 
-        public async Task<EducatorEntity> Update(EducatorEntity educator)
+        public async Task<EducatorEntity> Update(UpdateDTO educator)
         {
             using var db = new DataContext();
-            var list = db.educators.Update(educator).Entity;
+            EducatorEntity e = new EducatorEntity()
+            {
+                Id_educator = educator.Id_educator,
+                Name = educator.Name,
+                LastName = educator.LastName,
+                Patronymic = educator.Patronymic,
+                Sex = educator.Sex
+            };
+            var list = db.educators.Update(e).Entity;
             await db.SaveChangesAsync();
             return list;
         }

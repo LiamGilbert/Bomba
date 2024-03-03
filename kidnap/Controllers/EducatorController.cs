@@ -1,4 +1,5 @@
-﻿using kidnap.Models;
+﻿using kidnap.DTO;
+using kidnap.Models;
 using kidnap.Services;
 using Microsoft.AspNetCore.Mvc;
 
@@ -37,14 +38,14 @@ namespace kidnap.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create(EducatorEntity educator)
+        public async Task<IActionResult> Create(EducatorCreateDTO educator)
         {
             var item = await service.Create(educator);
             return Ok(item);
         }
 
         [HttpPut]
-        public async Task<IActionResult> Update(EducatorEntity educator)
+        public async Task<IActionResult> Update(UpdateDTO educator)
         {
             var item = await service.Update(educator);
             return Ok(item);
