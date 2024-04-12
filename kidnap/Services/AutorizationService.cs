@@ -26,7 +26,26 @@ namespace kidnap.Services
             }
             return list;
         }
+        public async Task<AutorizationEntity> Login(LoginDTO dto)
+        {
+            using var db = new DataContext();
+            var item = await db.autorization
+                .Include(x => x.person)
+                .ThenInclude(x => x.role)
+                .FirstOrDefaultAsync(x => x.login == dto.login);
+            
+            if (item == null)
+            {
+                throw new Exception();
+            }
 
+            if (!item.password.Equals(dto.password))
+            {
+                throw new Exception();
+            }
+
+            return item;
+        }
         public async Task<AutorizationEntity> Create(CreateAutorizationDTO createAutorization)
         {
             using var db = new DataContext();

@@ -38,6 +38,21 @@ namespace kidnap.Controllers
             return Ok(item);
         }
 
+        [HttpPost("login")]
+        public async Task<IActionResult> Login(LoginDTO dto)
+        {
+            try
+            {
+                var item = await autorizationService.Login(dto);
+                return Ok(item);
+            }
+            catch(Exception)
+            {
+                return BadRequest();
+            }
+            
+        }
+
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
         {
