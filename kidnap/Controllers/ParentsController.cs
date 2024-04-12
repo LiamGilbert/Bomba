@@ -1,25 +1,19 @@
-﻿using kidnap.DTO;
-using kidnap.Models;
+﻿using kidnap.DTO.Parents;
 using kidnap.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace kidnap.Controllers
 {
     [ApiController]
-    [Route("v1/educators")]
-    public class EducatorController : ControllerBase
+    [Route("v1/parents")]
+    public class ParentsController : ControllerBase
     {
-        private readonly EducatorService service;
-        public EducatorController()
-        {
-            this.service = new EducatorService();
-        }
-
+        private readonly ParentsService parentsService = new ParentsService();
         [HttpGet]
         public async Task<IActionResult> FindAll()
         {
-            var list = await service.FindAll();
-            return Ok(list);
+            var items = await parentsService.FindAll();
+            return Ok(items);
         }
 
         [HttpGet("{id}")]
@@ -27,27 +21,26 @@ namespace kidnap.Controllers
         {
             try
             {
-                var item = await service.FindById(id);
+                var item = await parentsService.FindById(id);
                 return Ok(item);
             }
             catch (Exception)
             {
                 return NotFound();
             }
-
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create(EducatorCreateDTO educator)
+        public async Task<IActionResult> Create(CreateParentDTO createParent)
         {
-            var item = await service.Create(educator);
+            var item = await parentsService.Create(createParent);
             return Ok(item);
         }
 
         [HttpPut]
-        public async Task<IActionResult> Update(UpdateDTO educator)
+        public async Task<IActionResult> Update(UpdateParentDTO updateParent)
         {
-            var item = await service.Update(educator);
+            var item = await parentsService.Update(updateParent);
             return Ok(item);
         }
 
@@ -56,7 +49,7 @@ namespace kidnap.Controllers
         {
             try
             {
-                var item = await service.Delete(id);
+                var item = await parentsService.Delete(id);
                 return Ok(item);
             }
             catch (Exception)
