@@ -13,17 +13,14 @@ namespace kidnap.Data
 
         public DbSet<AddressEntity> address { get; set; }
         public DbSet<AttendanceEntity> attendance { get; set; }
-        public DbSet<AutorizationEntity> autorization { get; set; }
+        public DbSet<AuthorizationEntity> authorization { get; set; }
         public DbSet<ChildrensEntity> childrens { get; set; }
         public DbSet<GroupEntity> groups { get; set; }
         public DbSet<GroupTypesEntity> grouptypes { get; set; }
-        public DbSet<MedcomissionsEntity> medcomissions { get; set;}
-        public DbSet<MedstatusEntity> medstatus { get; set; }
         public DbSet<ParentsEntity> parents { get; set; }
         public DbSet<PersonEntity> persons { get; set; }
         public DbSet<ReasonsEntity> reasons { get; set; }
         public DbSet<RoleEntity> roles { get; set; }
-        public DbSet<SexEntity> sex { get; set; }
         
     }
 }

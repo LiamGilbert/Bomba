@@ -1,6 +1,6 @@
 ﻿namespace kidnap.DTO.Autorization
 {
-    public class CreateAutorizationDTO
+    public class CreateAuthorizationDTO
     {
         public int id_person { get; set; }
         public string login { get; set; }

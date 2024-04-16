@@ -1,19 +1,18 @@
-﻿using kidnap.DTO.Autorization;
-using kidnap.Services;
+﻿using kidnap.Services;
 using Microsoft.AspNetCore.Mvc;
-using Mysqlx;
+using kidnap.DTO.Autorization;
 
 namespace kidnap.Controllers
 {
     [ApiController]
-    [Route("v1/autorization")]
-    public class AutorizationController: ControllerBase
+    [Route("v1/authorization")]
+    public class AuthorizationController: ControllerBase
     {
-        private readonly AutorizationService autorizationService = new AutorizationService();
+        private readonly AuthorizationService authorizationService = new AuthorizationService();
         [HttpGet]
         public async Task<IActionResult> FindAll()
         {
-            var items = await autorizationService.FindAll();
+            var items = await authorizationService.FindAll();
             return Ok(items);
         }
 
@@ -22,7 +21,7 @@ namespace kidnap.Controllers
         {
             try
             {
-                var item = await autorizationService.FindById(id);
+                var item = await authorizationService.FindById(id);
                 return Ok(item);
             }
             catch (Exception)
@@ -32,9 +31,9 @@ namespace kidnap.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create(CreateAutorizationDTO createPerson)
+        public async Task<IActionResult> Create(CreateAuthorizationDTO createPerson)
         {
-            var item = await autorizationService.Create(createPerson);
+            var item = await authorizationService.Create(createPerson);
             return Ok(item);
         }
 
@@ -43,7 +42,7 @@ namespace kidnap.Controllers
         {
             try
             {
-                var item = await autorizationService.Login(dto);
+                var item = await authorizationService.Login(dto);
                 return Ok(item);
             }
             catch(Exception)
@@ -58,7 +57,7 @@ namespace kidnap.Controllers
         {
             try
             {
-                var item = await autorizationService.Delete(id);
+                var item = await authorizationService.Delete(id);
                 return Ok(item);
             }
             catch (Exception)

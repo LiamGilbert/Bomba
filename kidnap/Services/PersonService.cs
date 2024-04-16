@@ -10,14 +10,14 @@ namespace kidnap.Services
         public async Task<List<PersonEntity>> FindAll()
         {
             using var db = new DataContext();
-            var list = await db.persons.Include(x=>x.sex).Include(x=>x.address).Include(x=>x.role).ToListAsync();
+            var list = await db.persons.Include(x=>x.address).Include(x=>x.role).ToListAsync();
             return list;
         }
 
         public async Task<PersonEntity> FindById(int id)
         {
             using var db = new DataContext();
-            var list = await db.persons.Include(x => x.sex).Include(x => x.address).Include(x => x.role).
+            var list = await db.persons.Include(x => x.address).Include(x => x.role).
                 FirstOrDefaultAsync(x => x.id_person == id);
             if (list == null)
             {
@@ -31,11 +31,10 @@ namespace kidnap.Services
             using var db = new DataContext();
             var item = new PersonEntity()
             {
-                id_sex = createPerson.id_sex,
                 lastname = createPerson.lastname,
-                name = createPerson.name,
+                firstname = createPerson.firstname,
                 patronymic = createPerson.patronymic,
-                birth_date = createPerson.birth_date,
+                sex = createPerson.sex,
                 id_address = createPerson.id_address,
                 id_role = createPerson.id_role
             };
@@ -51,11 +50,10 @@ namespace kidnap.Services
             var item = new PersonEntity()
             {
                 id_person = updatePerson.id_person,
-                id_sex = updatePerson.id_sex,
                 lastname = updatePerson.lastname,
-                name = updatePerson.name,
+                firstname = updatePerson.firstname,
                 patronymic = updatePerson.patronymic,
-                birth_date = updatePerson.birth_date,
+                sex = updatePerson.sex,
                 id_address = updatePerson.id_address,
                 id_role = updatePerson.id_role
             };

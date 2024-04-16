@@ -17,7 +17,7 @@ namespace kidnap.Services
         {
             using var db = new DataContext();
             var list = await db.grouptypes.
-                FirstOrDefaultAsync(x => x.id_grouptype == id);
+                FirstOrDefaultAsync(x => x.id_type == id);
             if (list == null)
             {
                 throw new Exception();

@@ -1,35 +1,35 @@
 ﻿using kidnap.Data;
-using kidnap.DTO.Autorization;
 using kidnap.Models;
 using Microsoft.EntityFrameworkCore;
+using kidnap.DTO.Autorization;
 
 namespace kidnap.Services
 {
-    public class AutorizationService
+    public class AuthorizationService
     {
-        public async Task<List<AutorizationEntity>> FindAll()
+        public async Task<List<AuthorizationEntity>> FindAll()
         {
             using var db = new DataContext();
-            var list = await db.autorization.Include(x => x.person).ThenInclude(x=>x.role).ToListAsync();
+            var list = await db.authorization.Include(x => x.person).ThenInclude(x=>x.role).ToListAsync();
             return list;
         }
 
-        public async Task<AutorizationEntity> FindById(int id)
+        public async Task<AuthorizationEntity> FindById(int id)
         {
             using var db = new DataContext();
-            var list = await db.autorization.Include(x => x.person).
+            var list = await db.authorization.Include(x => x.person).
                 ThenInclude(x => x.role).
-                FirstOrDefaultAsync(x => x.id_autorization == id);
+                FirstOrDefaultAsync(x => x.id_authorization == id);
             if (list == null)
             {
                 throw new Exception();
             }
             return list;
         }
-        public async Task<AutorizationEntity> Login(LoginDTO dto)
+        public async Task<AuthorizationEntity> Login(LoginDTO dto)
         {
             using var db = new DataContext();
-            var item = await db.autorization
+            var item = await db.authorization
                 .Include(x => x.person)
                 .ThenInclude(x => x.role)
                 .FirstOrDefaultAsync(x => x.login == dto.login);
@@ -46,10 +46,10 @@ namespace kidnap.Services
 
             return item;
         }
-        public async Task<AutorizationEntity> Create(CreateAutorizationDTO createAutorization)
+        public async Task<AuthorizationEntity> Create(CreateAuthorizationDTO createAutorization)
         {
             using var db = new DataContext();
-            var item = new AutorizationEntity()
+            var item = new AuthorizationEntity()
             {
                 id_person = createAutorization.id_person,
                 login = createAutorization.login,
@@ -61,11 +61,11 @@ namespace kidnap.Services
             return result.Entity;
         }
 
-        public async Task<AutorizationEntity> Delete(int id)
+        public async Task<AuthorizationEntity> Delete(int id)
         {
             using var db = new DataContext();
             var item = await FindById(id);
-            var list = db.autorization.Remove(item);
+            var list = db.authorization.Remove(item);
             await db.SaveChangesAsync();
             return item;
         }

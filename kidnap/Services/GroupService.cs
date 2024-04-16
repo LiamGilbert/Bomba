@@ -33,8 +33,8 @@ namespace kidnap.Services
             {
                 id_group = updateGroup.id_group,
                 group_name = updateGroup.group_name,
-                id_educator = updateGroup.id_educator,
-                id_grouptype = updateGroup.id_grouptype
+                id_type = updateGroup.id_type,
+                id_person = updateGroup.id_person
             };
 
             var result = db.Update(item);

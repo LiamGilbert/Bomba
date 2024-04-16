@@ -13,7 +13,7 @@ namespace kidnap.Models
         public int id_reason {  get; set; }
 
 
-        [ForeignKey("id_child")]
+        [ForeignKey("id_children")]
         public ChildrensEntity children { get; set; }
 
         [ForeignKey("id_reason")]

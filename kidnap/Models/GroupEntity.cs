@@ -8,14 +8,14 @@ namespace kidnap.Models
         [Key]
         public int id_group { get; set; }
         public string group_name { get; set; }
-        public int id_educator { get; set; }
-        public int id_grouptype { get; set; }
+        public int id_type { get; set; }
+        public int id_person { get; set; }
 
 
-        [ForeignKey("id_educator")]
+        [ForeignKey("id_person")]
         public PersonEntity person { get; set; }
 
-        [ForeignKey("id_grouptype")]
+        [ForeignKey("id_type")]
         public GroupTypesEntity type { get; set; }
     }
 }

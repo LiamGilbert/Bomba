@@ -13,8 +13,6 @@ namespace kidnap.Services
             var list = await db.childrens
                 .Include(x => x.group)
                 .Include(x => x.person).ThenInclude(x=>x.address)
-                .Include(x => x.parents).ThenInclude(x=>x.father)
-                .Include(x => x.medcomission).ThenInclude(x=>x.medstatus)
                 .ToListAsync();
             return list;
         }
@@ -23,9 +21,7 @@ namespace kidnap.Services
         {
             using var db = new DataContext();
             var list = await db.childrens.Include(x => x.group)
-                .Include(x => x.person)
-                .Include(x => x.parents).ThenInclude(x => x.father)
-                .Include(x => x.medcomission)
+                .Include(x => x.person).ThenInclude(x => x.address)
                 .FirstOrDefaultAsync(x => x.id_children == id);
             if (list == null)
             {
@@ -40,9 +36,7 @@ namespace kidnap.Services
             var item = new ChildrensEntity()
             {
                 id_person = createChild.id_person,
-                id_group = createChild.id_group,
-                id_parent = createChild.id_parent,
-                id_medcomission = createChild.id_medcomission
+                id_group = createChild.id_group
             };
 
             var result = await db.AddAsync(item);
@@ -57,9 +51,7 @@ namespace kidnap.Services
             {
                 id_children = updateChild.id_children,
                 id_person = updateChild.id_person,
-                id_group = updateChild.id_group,
-                id_parent = updateChild.id_parent,
-                id_medcomission = updateChild.id_medcomission
+                id_group = updateChild.id_group
             };
 
             var result = db.Update(item);

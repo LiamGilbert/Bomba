@@ -7,14 +7,12 @@ namespace kidnap.Models
     {
         [Key]
         public int id_parent {  get; set; }
-        public int id_mother { get; set; }
-        public int id_father { get; set; }
+        public string mother { get; set; }
+        public string father { get; set; }
+        public int id_children { get; set; }
 
 
-        [ForeignKey("id_mother")]
-        public PersonEntity mother { get; set; }
-
-        [ForeignKey("id_father")]
-        public PersonEntity father { get; set; }
+        [ForeignKey("id_children")]
+        public PersonEntity children { get; set; }
     }
 }

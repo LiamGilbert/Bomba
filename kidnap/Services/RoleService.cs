@@ -18,7 +18,7 @@ namespace kidnap.Services
         public async Task<RoleEntity> FindById(int id)
         {
             using var db = new DataContext();
-            var list = await db.roles.FirstOrDefaultAsync(x => x.id_roles == id);
+            var list = await db.roles.FirstOrDefaultAsync(x => x.id_role == id);
             if (list == null)
             {
                 throw new Exception();
