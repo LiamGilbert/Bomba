@@ -10,16 +10,18 @@ namespace kidnap.Services
         public async Task<List<ParentsEntity>> FindAll()
         {
             using var db = new DataContext();
-            var list = await db.parents.Include(x => x.mother).Include(x=>x.father).
-                ToListAsync();
+            var list = await db.parents
+                .Include(x => x.children).ThenInclude(x=>x.address)
+                .ToListAsync();
             return list;
         }
 
         public async Task<ParentsEntity> FindById(int id)
         {
             using var db = new DataContext();
-            var list = await db.parents.Include(x => x.mother).
-                Include(x => x.father).FirstOrDefaultAsync(x => x.id_parent == id);
+            var list = await db.parents
+                .Include(x=>x.children).ThenInclude(x => x.address)
+                .FirstOrDefaultAsync(x => x.id_parent == id);
             if (list == null)
             {
                 throw new Exception();
@@ -34,7 +36,7 @@ namespace kidnap.Services
             {
                 mother = createParent.mother,
                 father = createParent.father,
-                id_children = createParent.id_children
+                id_child = createParent.id_child
             };
 
             var result = await db.AddAsync(item);
@@ -50,7 +52,7 @@ namespace kidnap.Services
                 id_parent = updateParent.id_parent,
                 mother = updateParent.mother,
                 father = updateParent.father,
-                id_children = updateParent.id_children
+                id_child = updateParent.id_child
             };
 
             var result = db.Update(item);

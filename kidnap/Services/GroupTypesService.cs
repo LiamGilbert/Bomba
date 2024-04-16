@@ -9,14 +9,14 @@ namespace kidnap.Services
         public async Task<List<GroupTypesEntity>> FindAll()
         {
             using var db = new DataContext();
-            var list = await db.grouptypes.ToListAsync();
+            var list = await db.group_types.ToListAsync();
             return list;
         }
 
         public async Task<GroupTypesEntity> FindById(int id)
         {
             using var db = new DataContext();
-            var list = await db.grouptypes.
+            var list = await db.group_types.
                 FirstOrDefaultAsync(x => x.id_type == id);
             if (list == null)
             {

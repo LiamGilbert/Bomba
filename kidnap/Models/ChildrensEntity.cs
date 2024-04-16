@@ -12,9 +12,9 @@ namespace kidnap.Models
 
 
         [ForeignKey("id_person")]
-        public PersonEntity person { get; set; }
+        public PersonEntity? person { get; set; }
 
         [ForeignKey("id_group")]
-        public GroupEntity group { get; set; }
+        public GroupEntity? group { get; set; }
     }
 }

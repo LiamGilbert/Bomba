@@ -10,7 +10,7 @@ namespace kidnap.Services
         public async Task<List<AttendanceEntity>> FindAll()
         {
             using var db = new DataContext();
-            var list = await db.attendance.Include(x=>x.children).ThenInclude(x=>x.person).ThenInclude(x=>x.sex)
+            var list = await db.attendance.Include(x=>x.children).ThenInclude(x=>x.person)
                 .Include(x=>x.children).ThenInclude(x=>x.group)
                 .Include(x=>x.reason)
                 .ToListAsync();
@@ -20,7 +20,7 @@ namespace kidnap.Services
         public async Task<AttendanceEntity> FindById(int id)
         {
             using var db = new DataContext();
-            var list = await db.attendance.Include(x => x.children).ThenInclude(x => x.person).ThenInclude(x => x.sex)
+            var list = await db.attendance.Include(x => x.children).ThenInclude(x => x.person)
                 .Include(x => x.children).ThenInclude(x => x.group)
                 .Include(x => x.reason).FirstOrDefaultAsync(x => x.id_attendance == id);
             if (list == null)

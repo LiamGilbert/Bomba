@@ -19,7 +19,7 @@ namespace kidnap.Services
             using var db = new DataContext();
             var list = await db.authorization.Include(x => x.person).
                 ThenInclude(x => x.role).
-                FirstOrDefaultAsync(x => x.id_authorization == id);
+                FirstOrDefaultAsync(x => x.id_autorization == id);
             if (list == null)
             {
                 throw new Exception();

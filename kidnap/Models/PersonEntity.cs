@@ -7,17 +7,17 @@ namespace kidnap.Models
     {
         [Key]
         public int id_person { get; set; }
-        public string lastname { get; set; }
-        public string firstname { get; set; }
-        public string patronymic { get; set; }
+        public string lastname { get; set; } = String.Empty;
+        public string firstname { get; set; } = String.Empty;
+        public string? patronymic { get; set; }
         public bool sex { get; set; }
         public int id_address { get; set; }
         public int id_role { get; set; }
 
         [ForeignKey("id_role")]
-        public RoleEntity role { get; set; }
+        public RoleEntity? role { get; set; }
 
         [ForeignKey("id_address")]
-        public AddressEntity address { get; set; }
+        public AddressEntity? address { get; set; }
     }
 }

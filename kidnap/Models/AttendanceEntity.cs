@@ -9,14 +9,14 @@ namespace kidnap.Models
         public int id_attendance { get; set; }
         public int id_child { get; set; }
         public DateTime date { get; set; }
-        public string mark { get; set; }
-        public int id_reason {  get; set; }
+        public string mark { get; set; } = String.Empty;
+        public int? id_reason {  get; set; }
 
 
-        [ForeignKey("id_children")]
-        public ChildrensEntity children { get; set; }
+        [ForeignKey("id_child")]
+        public ChildrensEntity? children { get; set; }
 
         [ForeignKey("id_reason")]
-        public ReasonsEntity reason { get; set; }
+        public ReasonsEntity? reason { get; set; }
     }
 }

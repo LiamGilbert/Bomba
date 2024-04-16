@@ -6,6 +6,6 @@ namespace kidnap.Models
     {
         [Key]
         public int id_reason {  get; set; }
-        public string reason { get; set; }
+        public string reason { get; set; } = String.Empty;
     }
 }

@@ -11,16 +11,16 @@ namespace kidnap.Data
             optionsBuilder.UseMySQL("Database = kids; Data Source = 127.0.0.1; User Id = root; Password = pwd");
         }
 
-        public DbSet<AddressEntity> address { get; set; }
-        public DbSet<AttendanceEntity> attendance { get; set; }
-        public DbSet<AuthorizationEntity> authorization { get; set; }
-        public DbSet<ChildrensEntity> childrens { get; set; }
-        public DbSet<GroupEntity> groups { get; set; }
-        public DbSet<GroupTypesEntity> grouptypes { get; set; }
-        public DbSet<ParentsEntity> parents { get; set; }
-        public DbSet<PersonEntity> persons { get; set; }
-        public DbSet<ReasonsEntity> reasons { get; set; }
-        public DbSet<RoleEntity> roles { get; set; }
-        
+        public DbSet<AddressEntity> address { get; set; } = null!;
+        public DbSet<AttendanceEntity> attendance { get; set; } = null!;
+        public DbSet<AuthorizationEntity> authorization { get; set; } = null!;
+        public DbSet<ChildrensEntity> childrens { get; set; } = null!;
+        public DbSet<GroupEntity> groups { get; set; } = null!;
+        public DbSet<GroupTypesEntity> group_types { get; set; } = null!;
+        public DbSet<ParentsEntity> parents { get; set; } = null!;
+        public DbSet<PersonEntity> persons { get; set; } = null!;
+        public DbSet<ReasonsEntity> reasons { get; set; } = null!;
+        public DbSet<RoleEntity> roles { get; set; } = null!;
+
     }
 }

@@ -6,8 +6,8 @@ namespace kidnap.Models
     {
         [Key]
         public int id_address { get; set; }
-        public string town { get; set; }
-        public string street { get; set; }
-        public string house_number { get; set; }
+        public string town { get; set; } = String.Empty;
+        public string street { get; set; } = String.Empty;
+        public string house_number { get; set; } = String.Empty;
     }
 }

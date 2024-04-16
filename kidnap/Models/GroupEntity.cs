@@ -13,9 +13,9 @@ namespace kidnap.Models
 
 
         [ForeignKey("id_person")]
-        public PersonEntity person { get; set; }
+        public PersonEntity? person { get; set; }
 
         [ForeignKey("id_type")]
-        public GroupTypesEntity type { get; set; }
+        public GroupTypesEntity? type { get; set; }
     }
 }
