@@ -36,7 +36,8 @@ namespace kidnap.Services
             var item = new ChildrensEntity()
             {
                 id_person = createChild.id_person,
-                id_group = createChild.id_group
+                id_group = createChild.id_group,
+                birth_sertificate = createChild.birth_sertificate
             };
 
             var result = await db.AddAsync(item);
@@ -51,7 +52,8 @@ namespace kidnap.Services
             {
                 id_children = updateChild.id_children,
                 id_person = updateChild.id_person,
-                id_group = updateChild.id_group
+                id_group = updateChild.id_group,
+                birth_sertificate = updateChild.birth_sertificate
             };
 
             var result = db.Update(item);

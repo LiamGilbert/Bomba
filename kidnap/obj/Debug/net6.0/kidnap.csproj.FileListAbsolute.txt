@@ -58,9 +58,10 @@ C:\Users\liamtheraccoon\Desktop\kidnap\kidnap\obj\Debug\net6.0\staticwebassets.p
 C:\Users\liamtheraccoon\Desktop\kidnap\kidnap\obj\Debug\net6.0\staticwebassets.build.json
 C:\Users\liamtheraccoon\Desktop\kidnap\kidnap\obj\Debug\net6.0\staticwebassets.development.json
 C:\Users\liamtheraccoon\Desktop\kidnap\kidnap\obj\Debug\net6.0\scopedcss\bundle\kidnap.styles.css
-C:\Users\liamtheraccoon\Desktop\kidnap\kidnap\obj\Debug\net6.0\kidnap.csproj.CopyComplete
 C:\Users\liamtheraccoon\Desktop\kidnap\kidnap\obj\Debug\net6.0\kidnap.dll
 C:\Users\liamtheraccoon\Desktop\kidnap\kidnap\obj\Debug\net6.0\refint\kidnap.dll
 C:\Users\liamtheraccoon\Desktop\kidnap\kidnap\obj\Debug\net6.0\kidnap.pdb
 C:\Users\liamtheraccoon\Desktop\kidnap\kidnap\obj\Debug\net6.0\kidnap.genruntimeconfig.cache
 C:\Users\liamtheraccoon\Desktop\kidnap\kidnap\obj\Debug\net6.0\ref\kidnap.dll
+C:\Users\liamtheraccoon\Desktop\kidnap\kidnap\obj\Debug\net6.0\kidnap.sourcelink.json
+C:\Users\liamtheraccoon\Desktop\kidnap\kidnap\obj\Debug\net6.0\kidnap.csproj.Up2Date

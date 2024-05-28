@@ -1,4 +1,5 @@
 ﻿using kidnap.DTO.Groups;
+using kidnap.DTO.Persons;
 using kidnap.Services;
 using Microsoft.AspNetCore.Mvc;
 
@@ -28,6 +29,12 @@ namespace kidnap.Controllers
             {
                 return NotFound();
             }
+        }
+        [HttpPost]
+        public async Task<IActionResult> Create(CreateGroupDTO createGroup)
+        {
+            var item = await groupService.Create(createGroup);
+            return Ok(item);
         }
 
         [HttpPut]

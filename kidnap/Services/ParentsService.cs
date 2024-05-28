@@ -36,7 +36,8 @@ namespace kidnap.Services
             {
                 mother = createParent.mother,
                 father = createParent.father,
-                id_child = createParent.id_child
+                id_child = createParent.id_child,
+                home_telephone = createParent.home_telephone
             };
 
             var result = await db.AddAsync(item);
@@ -52,7 +53,8 @@ namespace kidnap.Services
                 id_parent = updateParent.id_parent,
                 mother = updateParent.mother,
                 father = updateParent.father,
-                id_child = updateParent.id_child
+                id_child = updateParent.id_child,
+                home_telephone = updateParent.home_telephone
             };
 
             var result = db.Update(item);

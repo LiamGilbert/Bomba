@@ -1,4 +1,5 @@
 ﻿using kidnap.Data;
+using kidnap.DTO.Childrens;
 using kidnap.DTO.Groups;
 using kidnap.Models;
 using Microsoft.EntityFrameworkCore;
@@ -24,6 +25,21 @@ namespace kidnap.Services
                 throw new Exception();
             }
             return list;
+        }
+
+        public async Task<GroupEntity> Create(CreateGroupDTO createGroup)
+        {
+            using var db = new DataContext();
+            var item = new GroupEntity()
+            {
+                group_name = createGroup.group_name,
+                id_type = createGroup.id_type,
+                id_person = createGroup.id_person
+            };
+
+            var result = await db.AddAsync(item);
+            await db.SaveChangesAsync();
+            return result.Entity;
         }
 
         public async Task<GroupEntity> Update(UpdateGroupDTO updateGroup)

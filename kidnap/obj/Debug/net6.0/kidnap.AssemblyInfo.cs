@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("kidnap")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+76017753b806a3fcdbc151fd2f9deeff87991e35")]
 [assembly: System.Reflection.AssemblyProductAttribute("kidnap")]
 [assembly: System.Reflection.AssemblyTitleAttribute("kidnap")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
